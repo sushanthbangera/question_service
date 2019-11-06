@@ -1,6 +1,6 @@
 FROM maven:3.5-jdk-8 AS build
-COPY src /usr/glarimy_question/src
-COPY pom.xml /usr/glarimy_question
-RUN mvn -f /usr/glarimy_question/pom.xml clean package
+COPY src /usr/quiz-question-service/src
+COPY pom.xml /usr/quiz-question-service
+RUN mvn -f /usr/quiz-question-service/pom.xml clean package
 EXPOSE 8082
-ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://mongodb:27017/glarimy","-jar","/usr/glarimy_question/target/quiz-question-service-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://mongodb:27017/glarimy","-jar","/usr/quiz-question-service/target/quiz-question-service-1.0.0.jar"]
